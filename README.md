@@ -1,2 +1,2 @@
 # ConsoleUI
- Standard methods for getting input from the user and consistent formatting of 'pages' in console apps
+ Stuff I frequently use for parsing input from the user and consistently formatting in console apps.
