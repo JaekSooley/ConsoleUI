@@ -29,7 +29,7 @@
 
         public static void Error(string description)
         {
-            Header("Error");
+            Header("///// Error /////");
             Console.WriteLine(description);
             Pause();
         }
@@ -38,7 +38,6 @@
         {
             Header("Warning", false);
             Console.WriteLine(description);
-            Pause();
         }
 
         public static void Input(string type, string defaultValue = "")
@@ -74,19 +73,7 @@
             return output;
         }
 
-        public static decimal GetDecimal(decimal defaultValue = 0.000m)
-        {
-            string type = "decimal";
-            UI.Input(type, defaultValue.ToString());
-            string input = ReadLine();
-            decimal output = defaultValue;
-            if (decimal.TryParse(input, out decimal val)) output = val;
-            else InputInvalid(type, input, defaultValue.ToString());
-
-            return output;
-        }
-
-        public static float GetFloat(float defaultValue = 0)
+        public static float GetFloat(float defaultValue = 0f)
         {
             string type = "float";
             UI.Input(type, defaultValue.ToString());
@@ -105,6 +92,19 @@
             string input = ReadLine();
             double output = defaultValue;
             if (double.TryParse(input, out double val)) output = val;
+            else InputInvalid(type, input, defaultValue.ToString());
+
+            return output;
+        }
+
+
+        public static decimal GetDecimal(decimal defaultValue = 0m)
+        {
+            string type = "decimal";
+            UI.Input(type, defaultValue.ToString());
+            string input = ReadLine();
+            decimal output = defaultValue;
+            if (decimal.TryParse(input, out decimal val)) output = val;
             else InputInvalid(type, input, defaultValue.ToString());
 
             return output;
@@ -132,7 +132,7 @@
 
         static void InputInvalid(string type, string input, string valueSetTo)
         {
-            UI.Error($"\"{input}\" was not of type \"{type}\"");
+            UI.Warning($"\"{input}\" was not of type \"{type}\". Default value \"{valueSetTo}\" was used.");
         }
     }
 }
