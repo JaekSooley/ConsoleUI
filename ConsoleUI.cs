@@ -40,6 +40,15 @@
             Console.WriteLine(description);
         }
 
+        // Yes, this is because I'm too lazy to keep typing Console.WriteLine();
+        // No, I will not be taking questions.
+        public static void Write(string text = "")
+        {
+            Console.WriteLine(text);
+        }
+
+
+        // Used by the Input class.
         public static void Input(string type, string defaultValue = "")
         {
             Console.WriteLine("");
